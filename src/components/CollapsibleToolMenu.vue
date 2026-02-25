@@ -111,6 +111,21 @@ const themeVars = useThemeVars();
     flex: 1;
     margin-bottom: 5px;
 
+    ::v-deep(.n-menu-item-content) {
+      display: flex;
+      align-items: center;
+
+      .n-menu-item-content__arrow {
+        order: -1;
+        margin-left: 0;
+        margin-right: 8px;
+      }
+
+      .n-menu-item-content-header {
+        margin-right: 0;
+      }
+    }
+
     ::v-deep(.n-menu-item-content::before) {
       left: 0;
       right: 13px;
