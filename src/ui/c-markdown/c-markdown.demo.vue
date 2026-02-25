@@ -2,14 +2,12 @@
 const md = `
 # IDC TOOLS
 
-## About
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
-mollis blandit, nunc nisl aliquam nunc, vitae aliquam nisl nunc vitae nisl.
+## 关于
+这是一个专为 IDC 基础设施运维打造的工具箱。
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-- Sed euismod, nisl quis mollis blandit, nunc nisl aliquam nunc, vitae aliquam nisl nunc vitae nisl.
-
-[IDC TOOLS](https://it-tools.tech)
+- 高效
+- 私密
+- 便捷
 `;
 </script>
 

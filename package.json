@@ -1,25 +1,23 @@
 {
-  "name": "my-dev-tools",
+  "name": "idc-tools",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@9.11.0",
-  "description": "My personal collection of handy online tools for developers.",
-  "author": "Your Name",
+  "description": "IDC 基础设施运维工具箱",
+  "author": "IDC TOOLS Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hsieh19/IDC-TOOLS.git"
   },
   "keywords": [
     "productivity",
-    "converter",
-    "website",
-    "vuejs",
+    "idc",
     "tools",
+    "vuejs",
     "frontend",
-    "tool",
-    "developer-tools",
-    "developer-productivity"
+    "infrastructure",
+    "运维"
   ],
   "scripts": {
     "dev": "vite",
@@ -86,7 +84,6 @@
     "oui-data": "^1.0.10",
     "pdf-signature-reader": "^1.4.2",
     "pinia": "^2.0.34",
-    "plausible-tracker": "^0.3.8",
     "qrcode": "^1.5.1",
     "randexp": "^0.5.3",
     "sql-formatter": "^13.0.0",

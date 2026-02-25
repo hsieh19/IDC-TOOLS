@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 import type { Ref } from 'vue';
 import _ from 'lodash';
 import type { Tool, ToolCategory, ToolWithCategory } from './tools.types';
-import { toolsWithCategory } from './index';
+import { toolsByCategory as rawToolsByCategory, toolsWithCategory } from './index';
 
 export const useToolStore = defineStore('tools', () => {
   const favoriteToolsName = useStorage('favoriteToolsName', []) as Ref<string[]>;
@@ -17,20 +17,28 @@ export const useToolStore = defineStore('tools', () => {
       path: tool.path,
       name: t(`tools.${toolI18nKey}.title`, tool.name),
       description: t(`tools.${toolI18nKey}.description`, tool.description),
-      category: t(`tools.categories.${tool.category.toLowerCase()}`, tool.category),
+      category: t(`tools.categories.${tool.category.toLowerCase().replace(/ /g, '-')}`, tool.category),
     });
   }));
 
-  const toolsByCategory = computed<ToolCategory[]>(() => {
-    return _.chain(tools.value)
-      .groupBy('category')
-      .map((components, name, path) => ({
-        name,
-        path,
-        components,
-      }))
-      .value();
-  });
+  const translateCategory = (category: ToolCategory): ToolCategory => {
+    const name = t(`tools.categories.${category.name.toLowerCase().replace(/ /g, '-')}`, category.name);
+    return {
+      ...category,
+      name,
+      components: category.components?.map((tool) => {
+        const toolI18nKey = tool.path.replace(/\//g, '');
+        return {
+          ...tool,
+          name: t(`tools.${toolI18nKey}.title`, tool.name),
+          description: t(`tools.${toolI18nKey}.description`, tool.description),
+        };
+      }),
+      children: category.children?.map(translateCategory),
+    };
+  };
+
+  const toolsByCategory = computed<ToolCategory[]>(() => rawToolsByCategory.map(translateCategory));
 
   const favoriteTools = computed(() => {
     return favoriteToolsName.value

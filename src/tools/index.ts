@@ -26,35 +26,67 @@ import type { ToolCategory } from './tools.types';
 
 export const toolsByCategory: ToolCategory[] = [
   {
-    name: 'Images and videos',
-    components: [qrCodeGenerator, wifiQrCodeGenerator, svgPlaceholderGenerator, cameraRecorder],
+    name: 'electrical',
+    children: [],
   },
   {
-    name: 'Development',
-    components: [
-      gitMemo,
-      randomPortGenerator,
-      crontabGenerator,
-      jsonViewer,
-      jsonMinify,
-      jsonToCsv,
-      sqlPrettify,
-      chmodCalculator,
-      dockerRunToDockerComposeConverter,
-      xmlFormatter,
-      yamlViewer,
-      emailNormalizer,
-      regexTester,
-      regexMemo,
+    name: 'hvac',
+    children: [],
+  },
+  {
+    name: 'low-voltage',
+    children: [],
+  },
+  {
+    name: 'fire-fighting',
+    children: [],
+  },
+  {
+    name: 'public',
+    children: [
+      {
+        name: 'images and videos',
+        components: [qrCodeGenerator, wifiQrCodeGenerator, svgPlaceholderGenerator, cameraRecorder],
+      },
+      {
+        name: 'development',
+        components: [
+          gitMemo,
+          randomPortGenerator,
+          crontabGenerator,
+          jsonViewer,
+          jsonMinify,
+          jsonToCsv,
+          sqlPrettify,
+          chmodCalculator,
+          dockerRunToDockerComposeConverter,
+          xmlFormatter,
+          yamlViewer,
+          emailNormalizer,
+          regexTester,
+          regexMemo,
+        ],
+      },
+      {
+        name: 'network',
+        components: [ipv4SubnetCalculator, ipv4AddressConverter, ipv4RangeExpander, macAddressLookup, macAddressGenerator, ipv6UlaGenerator],
+      },
     ],
-  },
-  {
-    name: 'Network',
-    components: [ipv4SubnetCalculator, ipv4AddressConverter, ipv4RangeExpander, macAddressLookup, macAddressGenerator, ipv6UlaGenerator],
   },
 ];
 
-export const tools = toolsByCategory.flatMap(({ components }) => components);
-export const toolsWithCategory = toolsByCategory.flatMap(({ components, name }) =>
-  components.map(tool => ({ category: name, ...tool })),
-);
+const flattenTools = (categories: ToolCategory[]): any[] => {
+  const tools: any[] = [];
+  categories.forEach((category) => {
+    if (category.components) {
+      tools.push(...category.components.map(tool => ({ ...tool, category: category.name })));
+    }
+    if (category.children) {
+      tools.push(...flattenTools(category.children));
+    }
+  });
+  return tools;
+};
+
+export const tools = flattenTools(toolsByCategory);
+export const toolsWithCategory = tools;

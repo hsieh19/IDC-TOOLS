@@ -12,15 +12,11 @@ import { useStyleStore } from '@/stores/style.store';
 import { config } from '@/config';
 import type { ToolCategory } from '@/tools/tools.types';
 import { useToolStore } from '@/tools/tools.store';
-import { useTracker } from '@/modules/tracker/tracker.services';
 import CollapsibleToolMenu from '@/components/CollapsibleToolMenu.vue';
 
 const themeVars = useThemeVars();
 const styleStore = useStyleStore();
-const version = config.app.version;
-const commitSha = config.app.lastCommitSha.slice(0, 7);
 
-const { tracker } = useTracker();
 const { t } = useI18n();
 
 const toolStore = useToolStore();
@@ -56,7 +52,6 @@ const tools = computed<ToolCategory[]>(() => [
         </div>
 
         <CollapsibleToolMenu :tools-by-category="tools" />
-
       </div>
     </template>
 
@@ -84,13 +79,9 @@ const tools = computed<ToolCategory[]>(() => [
 
         <command-palette />
 
-
-
         <div>
           <NavbarButtons v-if="!styleStore.isSmallScreen" />
         </div>
-
-
       </div>
       <slot />
     </template>
@@ -98,9 +89,6 @@ const tools = computed<ToolCategory[]>(() => [
 </template>
 
 <style lang="less" scoped>
-
-
-
 .sider-content {
   padding-top: 160px;
   padding-bottom: 200px;

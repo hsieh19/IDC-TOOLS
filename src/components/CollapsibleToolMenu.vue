@@ -29,17 +29,46 @@ function toggleCategoryCollapse({ name }: { name: string }) {
   collapsedCategories.value[name] = !collapsedCategories.value[name];
 }
 
-const menuOptions = computed(() =>
-  toolsByCategory.value.map(({ name, components }) => ({
-    name,
-    isCollapsed: collapsedCategories.value[name],
-    tools: components.map(tool => ({
-      label: makeLabel(tool),
-      icon: makeIcon(tool),
-      key: tool.path,
-    })),
-  })),
-);
+const menuOptions = computed(() => {
+  const mapToOption = (category: ToolCategory): any => {
+    const children = [
+      ...(category.children?.map(mapToOption) ?? []),
+      ...(category.components?.map(tool => ({
+        label: makeLabel(tool),
+        icon: makeIcon(tool),
+        key: tool.path,
+      })) ?? []),
+    ];
+
+    if (children.length === 0) {
+      return null;
+    }
+
+    return {
+      label: category.name,
+      key: category.name,
+      children,
+    };
+  };
+
+  return toolsByCategory.value.map((category) => {
+    const { name } = category;
+    const items = [
+      ...(category.children?.map(mapToOption).filter(Boolean) ?? []),
+      ...(category.components?.map(tool => ({
+        label: makeLabel(tool),
+        icon: makeIcon(tool),
+        key: tool.path,
+      })) ?? []),
+    ];
+
+    return {
+      name,
+      isCollapsed: collapsedCategories.value[name],
+      tools: items,
+    };
+  });
+});
 
 const themeVars = useThemeVars();
 </script>
