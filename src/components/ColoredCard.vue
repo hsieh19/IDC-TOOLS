@@ -7,7 +7,9 @@ const { icon, title } = toRefs(props);
 
 <template>
   <c-card class="colored-card">
-    <n-icon class="icon" size="40" :component="icon" />
+    <n-icon class="icon" size="40">
+      <component :is="icon" />
+    </n-icon>
     <n-h3 class="title">
       <n-ellipsis>{{ title }}</n-ellipsis>
     </n-h3>

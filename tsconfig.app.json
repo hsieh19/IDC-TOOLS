@@ -1,20 +1,38 @@
 {
   "extends": "@vue/tsconfig/tsconfig.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "**/*.d.ts", "node_modules/vite-plugin-pwa/client.d.ts"],
-  "exclude": ["src/**/__tests__/*"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "**/*.d.ts",
+    "node_modules/vite-plugin-pwa/client.d.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__/*"
+  ],
   "compilerOptions": {
-    "lib": ["ES2022"],
-    "target": "es2022",
-    "module": "es2022",
-    "moduleResolution": "Node",
-    "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
-    "types": ["naive-ui/volar", "@intlify/unplugin-vue-i18n/messages", "unplugin-icons/types/vue"],
-    "esModuleInterop": true,
+    "types": [
+      "node",
+      "vite/client",
+      "vue-router",
+      "pinia",
+      "naive-ui/volar",
+      "@intlify/unplugin-vue-i18n/messages",
+      "unplugin-icons/types/vue"
+    ],
+    "strict": true,
+    "moduleResolution": "bundler",
+    "allowJs": false,
+    "noEmit": true,
+    "skipLibCheck": true,
     "jsx": "preserve",
-    "skipLibCheck": true
+    "isolatedModules": true,
+    "resolveJsonModule": true
   }
 }

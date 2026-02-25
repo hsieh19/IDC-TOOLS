@@ -1,5 +1,6 @@
 import { resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
+import fs from 'node:fs';
 
 import VueI18n from '@intlify/unplugin-vue-i18n/vite';
 import vue from '@vitejs/plugin-vue';
@@ -97,6 +98,17 @@ export default defineConfig({
       resolvers: [NaiveUiResolver(), IconsResolver({ prefix: 'icon' })],
     }),
     Unocss(),
+    {
+      name: 'spa-fallback',
+      configureServer(server) {
+        server.middlewares.use((req, _res, next) => {
+          if (req.url === '/' && req.headers.accept?.includes('text/html')) {
+            req.url = '/index.html';
+          }
+          next();
+        });
+      },
+    },
   ],
   base: baseUrl,
   resolve: {
@@ -110,6 +122,11 @@ export default defineConfig({
   test: {
     exclude: [...configDefaults.exclude, '**/*.e2e.spec.ts'],
   },
+  server: {
+    host: '0.0.0.0',
+    port: 5174,
+  },
+  appType: 'spa',
   build: {
     target: 'esnext',
   },

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const md = `
-# IT Tools
+# IDC TOOLS
 
 ## About
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
@@ -9,7 +9,7 @@ mollis blandit, nunc nisl aliquam nunc, vitae aliquam nisl nunc vitae nisl.
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 - Sed euismod, nisl quis mollis blandit, nunc nisl aliquam nunc, vitae aliquam nisl nunc vitae nisl.
 
-[it-tools](https://it-tools.tech)
+[IDC TOOLS](https://it-tools.tech)
 `;
 </script>
 
