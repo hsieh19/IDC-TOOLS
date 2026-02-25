@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { convertBase } from '../integer-base-converter/integer-base-converter.model';
 import { ipv4ToInt, ipv4ToIpv6, isValidIpv4 } from './ipv4-address-converter.service';
 import { useValidation } from '@/composable/validation';
 
@@ -15,11 +14,11 @@ const convertedSections = computed(() => {
     },
     {
       label: 'Hexadecimal: ',
-      value: convertBase({ fromBase: 10, toBase: 16, value: String(ipInDecimal) }).toUpperCase(),
+      value: Number(ipInDecimal).toString(16).toUpperCase(),
     },
     {
       label: 'Binary: ',
-      value: convertBase({ fromBase: 10, toBase: 2, value: String(ipInDecimal) }),
+      value: Number(ipInDecimal).toString(2),
     },
     {
       label: 'Ipv6: ',
