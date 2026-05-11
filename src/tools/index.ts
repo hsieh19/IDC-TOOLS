@@ -1,6 +1,7 @@
 import { tool as emailNormalizer } from './email-normalizer';
 import { tool as regexTester } from './regex-tester';
 import { tool as regexMemo } from './regex-memo';
+import { tool as analogSignalConverter } from './analog-signal-converter';
 import { tool as macAddressGenerator } from './mac-address-generator';
 import { tool as jsonToCsv } from './json-to-csv';
 import { tool as cameraRecorder } from './camera-recorder';
@@ -35,7 +36,7 @@ export const toolsByCategory: ToolCategory[] = [
   },
   {
     name: 'low-voltage',
-    children: [],
+    components: [analogSignalConverter],
   },
   {
     name: 'fire-fighting',

@@ -70,6 +70,9 @@ tools:
   chmod-calculator:
     title: Chmod 计算器
     description: 使用此在线的chmod计算器计算chmod权限和命令。
+  analog-signal-converter:
+    title: 模拟量信号转换器
+    description: 用于工控、PLC 调试及动环监控中电信号（电流/电压）与实际物理信号（温度/压力/湿度等）的双向线性换算。
 
   mac-address-generator:
     title: MAC 地址生成器
