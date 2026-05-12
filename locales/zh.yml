@@ -73,6 +73,9 @@ tools:
   analog-signal-converter:
     title: 模拟量信号转换器
     description: 用于工控、PLC 调试及动环监控中电信号（电流/电压）与实际物理信号（温度/压力/湿度等）的双向线性换算。
+  modbus-parser:
+    title: Modbus 协议解析器
+    description: 针对 Modbus RTU 和 TCP 协议的报文解析、CRC16 校验以及多字节高精度数据（有/无符号整型、32位浮点数、ASCII、二进制比特）的端序转换调试工具。
 
   mac-address-generator:
     title: MAC 地址生成器
