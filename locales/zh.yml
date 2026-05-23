@@ -70,6 +70,9 @@ tools:
   chmod-calculator:
     title: Chmod 计算器
     description: 使用此在线的chmod计算器计算chmod权限和命令。
+  wet-bulb-calculator:
+    title: 湿球温度计算器
+    description: 通过输入干球温度、相对湿度以及当地大气压，精确计算出空气的湿球温度及相关参数，适用于暖通空调（HVAC）工程设计与调试。
   analog-signal-converter:
     title: 模拟量信号转换器
     description: 用于工控、PLC 调试及动环监控中电信号（电流/电压）与实际物理信号（温度/压力/湿度等）的双向线性换算。
