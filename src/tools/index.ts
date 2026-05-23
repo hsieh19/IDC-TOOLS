@@ -25,6 +25,7 @@ import { tool as yamlViewer } from './yaml-viewer';
 import { tool as jsonViewer } from './json-viewer';
 import { tool as chmodCalculator } from './chmod-calculator';
 import { tool as wetBulbCalculator } from './wet-bulb-calculator';
+import { tool as refrigerationCycleSimulator } from './refrigeration-cycle-simulator';
 import type { ToolCategory } from './tools.types';
 
 export const toolsByCategory: ToolCategory[] = [
@@ -34,7 +35,7 @@ export const toolsByCategory: ToolCategory[] = [
   },
   {
     name: 'hvac',
-    components: [wetBulbCalculator],
+    components: [wetBulbCalculator, refrigerationCycleSimulator],
   },
   {
     name: 'low-voltage',

@@ -120,6 +120,7 @@ declare module '@vue/runtime-core' {
     NTooltip: typeof import('naive-ui')['NTooltip']
     QrCodeGenerator: typeof import('./src/tools/qr-code-generator/qr-code-generator.vue')['default']
     RandomPortGenerator: typeof import('./src/tools/random-port-generator/random-port-generator.vue')['default']
+    RefrigerationCycleSimulator: typeof import('./src/tools/refrigeration-cycle-simulator/refrigeration-cycle-simulator.vue')['default']
     RegexMemo: typeof import('./src/tools/regex-memo/regex-memo.vue')['default']
     'RegexMemo.content': typeof import('./src/tools/regex-memo/regex-memo.content.md')['default']
     RegexTester: typeof import('./src/tools/regex-tester/regex-tester.vue')['default']

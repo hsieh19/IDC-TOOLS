@@ -73,6 +73,9 @@ tools:
   wet-bulb-calculator:
     title: 湿球温度计算器
     description: 通过输入干球温度、相对湿度以及当地大气压，精确计算出空气的湿球温度及相关参数，适用于暖通空调（HVAC）工程设计与调试。
+  refrigeration-cycle-simulator:
+    title: 制冷循环热力学模拟器
+    description: 动态直观地模拟制冷循环四个阶段（压缩、冷凝、节流、蒸发），并同步联动工程压焓图（P-h Diagram）与高精度物性参数计算，助力暖通工程教学与诊断分析。
   analog-signal-converter:
     title: 模拟量信号转换器
     description: 用于工控、PLC 调试及动环监控中电信号（电流/电压）与实际物理信号（温度/压力/湿度等）的双向线性换算。
