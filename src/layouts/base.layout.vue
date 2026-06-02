@@ -3,6 +3,7 @@ import { NIcon, useThemeVars } from 'naive-ui';
 
 import { RouterLink } from 'vue-router';
 import { Home2, Menu2 } from '@vicons/tabler';
+import { IconCoffee } from '@tabler/icons-vue';
 
 import { storeToRefs } from 'pinia';
 import HeroGradient from '../assets/hero-gradient.svg?component';
@@ -16,6 +17,7 @@ import CollapsibleToolMenu from '@/components/CollapsibleToolMenu.vue';
 
 const themeVars = useThemeVars();
 const styleStore = useStyleStore();
+const showSponsorModal = ref(false);
 
 const { t } = useI18n();
 
@@ -79,11 +81,62 @@ const tools = computed<ToolCategory[]>(() => [
 
         <command-palette />
 
+        <c-tooltip :tooltip="$t('sponsor.buttonTooltip')" position="bottom">
+          <c-button circle variant="text" :aria-label="$t('sponsor.buttonTooltip')" @click="showSponsorModal = true">
+            <n-icon size="25" :component="IconCoffee" />
+          </c-button>
+        </c-tooltip>
+
         <div>
           <NavbarButtons v-if="!styleStore.isSmallScreen" />
         </div>
       </div>
       <slot />
+
+      <c-modal v-model:open="showSponsorModal">
+        <div style="width: 100%;">
+
+          <!-- Header：渐变图标徽章 + 分层文字 + 关闭按钮 -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid #f0f0f0; margin-bottom: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #6366f1, #8b5cf6); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(99,102,241,0.30); flex-shrink: 0;">
+                <n-icon size="22" :component="IconCoffee" style="color: white;" />
+              </div>
+              <div>
+                <div style="font-size: 17px; font-weight: 700; color: #111827; line-height: 1.2;">{{ $t('sponsor.title') }}</div>
+                <div style="font-size: 12px; color: #6b7280; margin-top: 4px;">{{ $t('sponsor.description') }}</div>
+              </div>
+            </div>
+            <button
+              style="border: none; background: #f9fafb; border-radius: 8px; cursor: pointer; color: #6b7280; padding: 8px; line-height: 1; flex-shrink: 0; display: flex; align-items: center;"
+              @click="showSponsorModal = false"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- QR 区域：浅紫渐变底板 + 白色悬浮卡片 -->
+          <div style="background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%); border-radius: 16px; padding: 20px;">
+            <!--
+              容器宽 = modal(576) - pa(48) - gray-padding(40) = 488px
+              原图 1361×1131。QR占中央约50%宽=680px。
+              显示宽度 = 488/(680/1361) ≈ 980px → QR正好填满488px容器
+            -->
+            <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(99,102,241,0.10), 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; width: 100%; height: 360px; position: relative;">
+              <img
+                src="https://update.anyport.one/anyport/reward.png"
+                alt="赞赏码"
+                style="position: absolute; top: 47%; left: 50%; transform: translate(-50%, -50%); width: 450px; height: auto; image-rendering: -webkit-optimize-contrast;"
+              />
+            </div>
+          </div>
+
+          <!-- 底部寄语 -->
+          <p style="text-align: center; font-size: 12px; color: #9ca3af; margin: 14px 0 0 0; letter-spacing: 0.01em;">{{ $t('sponsor.footerText') }}</p>
+        </div>
+      </c-modal>
     </template>
   </MenuLayout>
 </template>

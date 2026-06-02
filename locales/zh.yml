@@ -19,41 +19,15 @@ tools:
   categories:
     favorite-tools: '我的收藏'
     images-and-videos: '图片和视频'
-    development: '开发'
-    network: '网络'
     electrical: '电气'
     hvac: '暖通'
     low-voltage: '弱电'
     fire-fighting: '消防'
     public: '公共'
 
-  svg-placeholder-generator:
-    title: SVG 占位符生成器
-    description: 生成 svg 图像以用作应用程序中的占位符。
-
-  json-to-csv:
-    title: JSON 转 CSV
-    description: 使用自动标头检测将JSON转换为CSV。
-
   camera-recorder:
     title: 摄像机记录器
     description: 从网络摄像头或照相机拍摄照片或录制视频。
-
-  crontab-generator:
-    title: Crontab 表达式生成
-    description: 验证并生成crontab，并获取cron调度的可读描述。
-
-  sql-prettify:
-    title: SQL 美化和格式化
-    description: 在线格式化和美化您的 SQL 查询（它支持各种 SQL 方言）。
-
-  git-memo:
-    title: Git 备忘录
-    description: Git是一种去中心化的版本管理软件。使用此备忘单，您可以快速访问最常见的git命令.
-
-  random-port-generator:
-    title: 随机端口生成
-    description: 生成“已知”端口范围（0-1023）之外的随机端口号。
 
   qrcode-generator:
     title: 二维码生成器
@@ -63,70 +37,25 @@ tools:
     title: WiFi 二维码生成器
     description: 生成和下载QR码以快速连接到WiFi网络。
 
-  xml-formatter:
-    title: XML 格式化
-    description: 将XML字符串修饰为友好的可读格式。
-
-  chmod-calculator:
-    title: Chmod 计算器
-    description: 使用此在线的chmod计算器计算chmod权限和命令。
   wet-bulb-calculator:
     title: 湿球温度计算器
     description: 通过输入干球温度、相对湿度以及当地大气压，精确计算出空气的湿球温度及相关参数，适用于暖通空调（HVAC）工程设计与调试。
+
   refrigeration-cycle-simulator:
     title: 制冷循环热力学模拟器
     description: 动态直观地模拟制冷循环四个阶段（压缩、冷凝、节流、蒸发），并同步联动工程压焓图（P-h Diagram）与高精度物性参数计算，助力暖通工程教学与诊断分析。
+
   analog-signal-converter:
     title: 模拟量信号转换器
     description: 用于工控、PLC 调试及动环监控中电信号（电流/电压）与实际物理信号（温度/压力/湿度等）的双向线性换算。
+
   modbus-parser:
     title: Modbus 协议解析器
     description: 针对 Modbus RTU 和 TCP 协议的报文解析、CRC16 校验以及多字节高精度数据（有/无符号整型、32位浮点数、ASCII、二进制比特）的端序转换调试工具。
 
-  mac-address-generator:
-    title: MAC 地址生成器
-    description: 输入数量和前缀。MAC地址将以您选择的大小写（大写或小写）生成
-
-  ipv4-subnet-calculator:
-    title: IPv4子网计算器
-    description: 解析IPv4 CIDR块，并获取有关子网络的所有所需信息。
-
-  ipv6-ula-generator:
-    title: IPv6 ULA生成器
-    description: 根据RFC4193在网络上生成您自己的本地不可路由IP地址。
-
-  json-minify:
-    title: JSON 压缩
-    description: 通过删除不必要的空白来缩小和压缩JSON。
-
-  ipv4-address-converter:
-    title: Ipv4地址转换器
-    description: 在ipv6中，将ip地址转换为十进制、二进制、十六进制或事件
-
-  ipv4-range-expander:
-    title: IPv4范围扩展器
-    description: 给定起始和结束IPv4地址，此工具使用其CIDR表示法计算有效的IPv4网络。
-
-  email-normalizer:
-    title: 邮箱标准化
-    description: 规范化电子邮箱地址，合并等价写法。
-
-  regex-tester:
-    title: 正则表达式测试器
-    description: 编写并测试正则表达式，查看匹配结果。
-
-  regex-memo:
-    title: 正则表达式备忘录
-    description: 收集和管理常用的正则表达式片段。
-
-  json-viewer:
-    title: JSON 查看器
-    description: 以美观且可交互的方式查看 JSON。
-
-  mac-address-lookup:
-    title: MAC 地址查找
-    description: 通过 MAC 地址查找设备供应商信息。
-
-  yaml-viewer:
-    title: YAML 查看器
-    description: 以美观且可交互的方式查看 YAML。
+sponsor:
+  buttonTooltip: '赞赏作者'
+  title: '赞赏作者'
+  description: '如果这些运维工具对您有所帮助，欢迎扫码赞赏支持作者的开源开发！'
+  footerText: '您的每一份支持，都是我维护工具箱的动力。'
+  close: '关闭'
